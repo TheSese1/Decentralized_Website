@@ -1,0 +1,33 @@
+name: 'IPFS Pinata deploy GitHub action'
+description: 'Action which automates deploy to Pinata IPFS'
+branding:
+  icon: 'server'
+  color: 'white'
+inputs:
+  path:
+    description: '/.github/workflows/site2test'
+    required: true
+    default: 'build'
+  pin-name:
+    description: 'First_pin'
+    required: true
+  pinata-api-key:
+    description: '9c3f22d25cd308d70499'
+    required: true
+  pinata-secret-api-key:
+    description: 'cf453ae5d9ff22f8f3703307f62baca0db4c8d3672bbe255594e4936eff1313a'
+    required: true
+  remove-old:
+    description: 'Remove old pin(-s) with same same'
+    required: false
+    default: 'false'
+  verbose:
+    description: 'Verbose mode'
+    required: true
+    default: 'false'
+outputs:
+  hash:
+    description: 'IPFS hash of the uploaded file or directory'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
